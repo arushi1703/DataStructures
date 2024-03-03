@@ -6,17 +6,14 @@ def quick_sort(l):
         right=len(l)-1
 
         while(left<=right):
-            while(left<=right and l[left]<l[pivot]):
+            while(left<len(l) and l[left]<l[pivot]):
                 left+=1
-            while(left<=right and l[right]>l[pivot]):
+            while(right>0 and l[right]>l[pivot]):
                 right-=1
             if left<=right:
-                if(l[left]>l[right]):
-                    l[left],l[right]=l[right],l[left]
-                    left+=1
-                    right-=1
-
-        l[pivot],l[right]=l[right],l[pivot]
+                l[left],l[right]=l[right],l[left]
+            else:
+                l[pivot],l[right]=l[right],l[pivot]
         
         left_l=l[:right]
         right_l=l[right+1:]
